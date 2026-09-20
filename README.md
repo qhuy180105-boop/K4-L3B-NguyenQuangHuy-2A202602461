@@ -1,6 +1,6 @@
-# K4-L3B — Ngày 7: Nền Tảng Dữ Liệu, Embedding & Vector Store
+# K4-L3A — Ngày 7: Nền Tảng Dữ Liệu, Embedding & Vector Store
 
-> Bản K4-L3B của Lab 07 (chủ đề: chính sách thương mại điện tử). Hướng dẫn Codelabs để tải lên nằm tại `../codelabs/day7-lab-data-foundations.md`; yêu cầu Giai đoạn 2 riêng xem [K4_VARIANT.md](K4_VARIANT.md). Lớp song song L3A dùng cùng bài học nhưng crawl chủ đề dịch vụ/quy định đại học.
+> Bản K4-L3A của Lab 07 (chủ đề: dịch vụ/quy định đại học). Hướng dẫn Codelabs để tải lên nằm tại `../codelabs/day7-lab-data-foundations.md`; yêu cầu Giai đoạn 2 riêng xem [K4_VARIANT.md](K4_VARIANT.md). Lớp song song L3B dùng cùng bài học nhưng crawl chủ đề thương mại điện tử.
 
 ---
 

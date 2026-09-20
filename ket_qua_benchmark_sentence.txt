@@ -1,0 +1,141 @@
+SHOPEE BUYER-POLICY BENCHMARK
+Corpus: data/shopee-buyer-policy
+Chunker: SentenceChunker (max_sentences_per_chunk=3)
+Embedding backend: gemini-embedding-001
+Chunks loaded: 34
+
+========================================================================
+Question 1: Người mua gửi yêu cầu Trả hàng/Hoàn tiền trực tiếp tại trang đơn hàng như thế nào?
+Gold answer: Vào Tôi > Chờ giao hàng hoặc Đã giao, chọn đơn hàng và bấm Trả hàng/Hoàn tiền.
+
+search(...), top-3:
+  1. score=0.8200 doc_id=shopee-buyer-return-refund-request
+     Cách 1: Gửi yêu cầu trực tiếp tại trang đơn hàng Bước 1: Mở ứng dụng Shopee, vào mục Tôi > chọn thẻ Chờ giao hàng/Đã giao Bước 2: Tại đơn hàng bạn cần xử lý, bấm Trả hàng/Hoàn tiền. Bước 3: Chọn tình huống bạn đang gặp "Tôi đã nhận hàng nhưng hàng có vấn đề (bể vỡ, sai mẫu, hàng 
+  2. score=0.8131 doc_id=shopee-buyer-return-refund-request
+     # Hướng dẫn gửi yêu cầu trả hàng hoàn tiền [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàng/ Hoàn tiền | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàng/ Hoàn tiền 1. Hướng dẫn gửi yêu cầu Trả hàng/Hoàn
+  3. score=0.7778 doc_id=shopee-buyer-return-refund-request
+     Bước 2: Chọn Khiếu nại trả hàng hoàn tiền. Bước 3: Chọn đơn hàng bạn cần gửi yêu cầu. Bước 4: Xác nhận và gửi yêu cầu Xác nhận bạn Đã nhận hoặc Chưa nhận hàng.
+
+Agent answer:
+Cách 1: Gửi yêu cầu trực tiếp tại trang đơn hàng
+
+Bước 1: Mở ứng dụng Shopee, vào mục Tôi > chọn thẻ Chờ giao hàng/Đã giao 
+
+Bước 2: Tại đơn hàng bạn cần xử lý, bấm Trả hàng/Hoàn tiền. Bước 3: Chọn tình huống bạn đang gặp
+
+ 
+
+"Tôi đã nhận hàng nhưng hàng có vấn đề (bể vỡ, sai mẫu, hàng lỗi, khác mô tả,...) - Miễn ship hoàn về ": Dành cho trường hợp sản phẩm bị lỗi, thiếu, hoặc không đúng mô tả. "Tôi chưa nhận hàng/nhận thiếu hàng": Dành cho trường hợp bạn chưa nhận được hàng hoặc bị thiếu sản phẩm trong đơn.
+
+========================================================================
+Question 2: Yêu cầu Trả hàng/Hoàn tiền thường được xử lý trong bao lâu và tiền hoàn được nhận sau bao lâu nếu yêu cầu được chấp nhận?
+Gold answer: Yêu cầu thường được xử lý trong 3-5 ngày làm việc; tiền hoàn về trong 1-14 ngày làm việc tùy phương thức thanh toán.
+
+search(...), top-3:
+  1. score=0.8338 doc_id=shopee-buyer-return-refund-request
+     Thời gian hoàn tiền Nếu yêu cầu được chấp nhận, tiền sẽ được hoàn trong 1 - 14 ngày làm việc, tùy thuộc vào phương thức thanh toán. Để tìm hiểu thêm về thời gian hoàn tiền theo từng phương thức, vui lòng truy cập [Trả hàng/Hoàn tiền] Thời gian nhận tiền hoàn và cách kiểm tra tiền
+  2. score=0.7604 doc_id=shopee-buyer-return-refund-request
+     # Hướng dẫn gửi yêu cầu trả hàng hoàn tiền [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàng/ Hoàn tiền | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàng/ Hoàn tiền 1. Hướng dẫn gửi yêu cầu Trả hàng/Hoàn
+  3. score=0.7563 doc_id=shopee-buyer-delivery-status-issue
+     Tham khảo thêm quy trình Trả hàng/Hoàn tiền của Shopee 4.1. Bạn đã nhận được hàng nhưng hệ thống lại cập nhật đơn hàng chuyển hoàn/hủy: Vui lòng liên hệ nhân viên CSKH của Shopee để được hỗ trợ trong vòng 7 ngày (sau thời gian này Shopee sẽ không thể hỗ trợ xử lý) kể từ khi hệ th
+
+Agent answer:
+Thời gian hoàn tiền
+
+Nếu yêu cầu được chấp nhận, tiền sẽ được hoàn trong 1 - 14 ngày làm việc, tùy thuộc vào phương thức thanh toán. Để tìm hiểu thêm về thời gian hoàn tiền theo từng phương thức, vui lòng truy cập [Trả hàng/Hoàn tiền] Thời gian nhận tiền hoàn và cách kiểm tra tiền hoàn
+
+Trường hợp Trả lại & Hoàn tiền
+
+Bạn cần trả lại sản phẩm bằng cách yêu cầu bưu tá đến lấy hoặc tự ra bưu cục gửi. Sản phẩm sẽ được Người bán/Shopee xem xét khi nhận lại.
+
+========================================================================
+Question 3: Người mua có thể yêu cầu hủy đơn ở những trạng thái nào?
+Gold answer: Chờ xác nhận được hủy ngay; Chờ lấy hàng cần chờ phản hồi Người bán; các trạng thái khác không thể yêu cầu hủy.
+
+search(...), top-3:
+  1. score=0.8467 doc_id=shopee-buyer-order-cancellation
+     [Đơn hàng] Tôi có thể hủy đơn hàng không? 1. Người mua chỉ CÓ thể yêu cầu hủy đơn trong các trường hợp sau: Đơn hàng được giao bởi SPX Express (*): có thể hủy ngay khi Người mua nhấn Hủy đơn hàng nếu đơn hàng chưa đến trạm giao hàng (Xem chi tiết tại đây) Đơn hàng được giao bởi c
+  2. score=0.8090 doc_id=shopee-buyer-order-cancellation
+     # Hủy đơn hàng của người mua [Đơn hàng] Tôi có thể hủy đơn hàng không? | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi có thể hủy đơn hàng không?
+  3. score=0.8030 doc_id=shopee-buyer-cancelled-order-rules
+     Các đơn hàng ở trạng thái "Đã hủy" sẽ không thể khôi phục để giao hàng lại. Nếu bạn có nhu cầu mua lại sản phẩm trong đơn "Đã hủy" với giá ưu đãi, bạn có thể chủ động thương lượng với Người bán về giá của sản phẩm và đặt đơn mới Đơn hàng của bạn có thể bị hủy vì một vài lý do sau
+
+Agent answer:
+[Đơn hàng] Tôi có thể hủy đơn hàng không? 1. Người mua chỉ CÓ thể yêu cầu hủy đơn trong các trường hợp sau:
+
+Đơn hàng được giao bởi SPX Express (*): có thể hủy ngay khi Người mua nhấn Hủy đơn hàng nếu đơn hàng chưa đến trạm giao hàng (Xem chi tiết tại đây)
+
+Đơn hàng được giao bởi các đơn vị vận chuyển (ĐVVC) khác, tùy vào trạng thái đơn hàng hiện tại, cụ thể như sau:
+
+ 
+
+Trạng thái đơn hàng
+
+Gửi yêu cầu Hủy đơn
+
+Chờ xác nhận
+
+Hủy ngay
+
+Chờ lấy hàng
+
+· Cần chờ phản hồi từ Người bán:
+
+· Chấp nhận: được hủy ngay
+
+· Từ chối: đơn hàng không hủy và sẽ tiếp tục giao đến Người mua
+
+Các trạng thái khác
+
+Không thể yêu cầu hủy đơn
+
+ 
+
+(*) Trường hợp này chỉ áp dụng cho một số Người dùng nhất định.
+
+========================================================================
+Question 4: Nếu Shipper không liên hệ nhưng cập nhật giao hàng không thành công, Người mua cần làm gì?
+Gold answer: Chờ cuộc gọi tiếp theo từ Shipper; Shipper sẽ có 3 lần liên hệ để giao hàng theo thời gian dự kiến.
+
+search(...), top-3:
+  1. score=0.8216 doc_id=shopee-buyer-delivery-status-issue
+     # Xử lý trạng thái giao hàng cập nhật sai [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng? | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được
+  2. score=0.7910 doc_id=shopee-buyer-delivery-status-issue
+     Hiện Shopee chưa hỗ trợ giao/lấy hàng theo giờ cụ thể hoặc sớm hơn thời gian dự kiến Để theo dõi tình trạng đơn hàng, bạn có thể chủ động kiểm tra trực tiếp trên ứng dụng Shopee theo hướng dẫn tại đây Sau khi kiểm tra tình trạng đơn hàng, nếu đơn hàng của bạn gặp phải 1 trong các
+  3. score=0.7883 doc_id=shopee-buyer-delivery-status-issue
+     Shipper sẽ có 3 lần liên hệ với bạn để giao đơn hàng theo thời gian nhận hàng dự kiến 2. Shipper không liên hệ nhưng lại cập nhật chuyển hoàn: Nếu đơn hàng đã được cập nhật chuyển hoàn cho Người bán: rất tiếc đơn hàng sẽ không thể tiếp tục giao lại, bạn vui lòng thao tác đặt lại 
+
+Agent answer:
+# Xử lý trạng thái giao hàng cập nhật sai
+
+[Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng? | Shopee Trung tâm trợ giúp
+
+Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng?
+
+========================================================================
+Question 5: Nếu quá 24 giờ đơn bị cập nhật đã giao nhưng Người mua chưa nhận được hàng, cần chọn lý do Trả hàng/Hoàn tiền nào và có cần bằng chứng không?
+Gold answer: Chọn lý do Chưa nhận được hàng; không cần cung cấp bằng chứng.
+
+search(...), top-3:
+  1. score=0.7832 doc_id=shopee-buyer-delivery-status-issue
+     # Xử lý trạng thái giao hàng cập nhật sai [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng? | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được
+  2. score=0.7777 doc_id=shopee-buyer-delivery-status-issue
+     Tham khảo thêm quy trình Trả hàng/Hoàn tiền của Shopee 4.1. Bạn đã nhận được hàng nhưng hệ thống lại cập nhật đơn hàng chuyển hoàn/hủy: Vui lòng liên hệ nhân viên CSKH của Shopee để được hỗ trợ trong vòng 7 ngày (sau thời gian này Shopee sẽ không thể hỗ trợ xử lý) kể từ khi hệ th
+  3. score=0.7587 doc_id=shopee-buyer-delivery-status-issue
+     Shipper sẽ có 3 lần liên hệ với bạn để giao đơn hàng theo thời gian nhận hàng dự kiến 2. Shipper không liên hệ nhưng lại cập nhật chuyển hoàn: Nếu đơn hàng đã được cập nhật chuyển hoàn cho Người bán: rất tiếc đơn hàng sẽ không thể tiếp tục giao lại, bạn vui lòng thao tác đặt lại 
+
+search_with_filter(..., metadata_filter={'audience': 'buyer'}), top-3:
+  1. score=0.7832 doc_id=shopee-buyer-delivery-status-issue
+     # Xử lý trạng thái giao hàng cập nhật sai [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng? | Shopee Trung tâm trợ giúp Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được
+  2. score=0.7777 doc_id=shopee-buyer-delivery-status-issue
+     Tham khảo thêm quy trình Trả hàng/Hoàn tiền của Shopee 4.1. Bạn đã nhận được hàng nhưng hệ thống lại cập nhật đơn hàng chuyển hoàn/hủy: Vui lòng liên hệ nhân viên CSKH của Shopee để được hỗ trợ trong vòng 7 ngày (sau thời gian này Shopee sẽ không thể hỗ trợ xử lý) kể từ khi hệ th
+  3. score=0.7587 doc_id=shopee-buyer-delivery-status-issue
+     Shipper sẽ có 3 lần liên hệ với bạn để giao đơn hàng theo thời gian nhận hàng dự kiến 2. Shipper không liên hệ nhưng lại cập nhật chuyển hoàn: Nếu đơn hàng đã được cập nhật chuyển hoàn cho Người bán: rất tiếc đơn hàng sẽ không thể tiếp tục giao lại, bạn vui lòng thao tác đặt lại 
+
+Agent answer:
+# Xử lý trạng thái giao hàng cập nhật sai
+
+[Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng? | Shopee Trung tâm trợ giúp
+
+Xin chào, Shopee có thể giúp gì cho bạn? [Đơn hàng] Tôi phải làm gì nếu đơn hàng bị cập nhật sai trạng thái/chưa nhận được hàng?
+

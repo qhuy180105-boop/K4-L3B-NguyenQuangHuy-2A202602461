@@ -104,13 +104,13 @@ Thấy `ModuleNotFoundError` nghĩa là venv chưa activate hoặc chưa `pip in
 
 Đọc [`docs/DATA_COLLECTION.md`](docs/DATA_COLLECTION.md) trước khi crawl. Tài liệu đó là chuẩn chấm cho deliverable #2, phần dưới chỉ tóm tắt cách áp dụng.
 
-### Ràng buộc riêng của K4-L3B
+### Ràng buộc riêng của K4-L3A
 
-Chủ đề bắt buộc của lớp **L3B** là **chính sách đổi trả, bảo hành, hoặc quy định người bán/người mua** trên nền tảng thương mại điện tử. (Lớp song song L3A cùng bài học này crawl chủ đề dịch vụ/quy định đại học — xem [`K4_VARIANT.md`](K4_VARIANT.md).) Ba ràng buộc quyết định cách bạn thu dữ liệu:
+Chủ đề bắt buộc của lớp **L3A** là **dịch vụ hoặc quy định đại học**: đăng ký học phần, học phí, học bổng, thư viện, ký túc xá, phúc khảo. (Lớp song song L3B cùng bài học này crawl chủ đề thương mại điện tử — xem [`K4_VARIANT.md`](K4_VARIANT.md).) Ba ràng buộc quyết định cách bạn thu dữ liệu:
 
-1. Mỗi tài liệu phải có `audience` (`buyer` / `seller` / `both`) cùng `source_url`, `retrieved_at`, `document_version`, và ít nhất một trường lọc khác.
-2. Trong 5 benchmark query phải có ít nhất một câu **cần** `metadata_filter={"audience": "buyer"}` (hoặc `"seller"`) mới trả lời đúng.
-3. Ít nhất một thành viên chunk theo tiêu đề/mục của điều khoản/chính sách gốc.
+1. Mỗi tài liệu phải có `audience` (`student` / `faculty` / `staff` / `all`) cùng `source_url`, `retrieved_at`, `document_version`, và ít nhất một trường lọc khác.
+2. Trong 5 benchmark query phải có ít nhất một câu **cần** `metadata_filter={"audience": "student"}` mới trả lời đúng.
+3. Ít nhất một thành viên chunk theo tiêu đề/mục của văn bản quy định.
 
 ### Chia vai (5 phút)
 
@@ -136,7 +136,7 @@ cp scripts/urls.example.csv data/urls.csv
 python scripts/fetch_public_pages.py data/urls.csv --output-dir data/<ten-chu-de>
 ```
 
-Cột bắt buộc trong `data/urls.csv` là `url`. Các cột `doc_id`, `title`, `audience`, `category`, `language`, `document_version`, `license_or_permission` sẽ được đưa thẳng vào frontmatter của file `.md` sinh ra.
+Cột bắt buộc trong `data/urls.csv` là `url`. Các cột `doc_id`, `title`, `audience`, `department`, `category`, `language`, `document_version`, `license_or_permission` sẽ được đưa thẳng vào frontmatter của file `.md` sinh ra.
 
 Bốn thứ gần như chắc chắn xảy ra, chuẩn bị tinh thần trước:
 
@@ -146,13 +146,13 @@ Bốn thứ gần như chắc chắn xảy ra, chuẩn bị tinh thần trước
 
 **Script crash giữa chừng** với `LookupError: unknown encoding: ...`. Đây là bug đã biết: server trả charset không hợp lệ (ví dụ `charset=utf-8,gbk`), và `LookupError` không nằm trong danh sách bắt lỗi của script nên một URL hỏng làm sập cả lượt chạy. Bỏ URL đó ra khỏi CSV, chạy tiếp, xử lý riêng nó sau.
 
-**Output thô rất bẩn.** Script giữ nguyên menu, banner khuyến mãi, danh sách sản phẩm không liên quan — một trang 3 KB nội dung có thể ra file 16 KB. `docs/DATA_COLLECTION.md` mục 2 yêu cầu bạn **làm sạch trước khi lưu**. Xoá phần thừa bằng tay, giữ lại đúng điều khoản, con số và mốc thời gian. Đừng chunk trên bản thô — nhiễu sẽ chiếm hết top-k.
+**Output thô rất bẩn.** Script giữ nguyên menu, "Chuyển đến nội dung", danh sách tin tức không liên quan — một trang 3 KB nội dung có thể ra file 16 KB. `docs/DATA_COLLECTION.md` mục 2 yêu cầu bạn **làm sạch trước khi lưu**. Xoá phần thừa bằng tay, giữ lại đúng điều khoản, con số và mốc thời gian. Đừng chunk trên bản thô — nhiễu sẽ chiếm hết top-k.
 
 Đọc lại từng file sau khi làm sạch. Đừng tin output tự động: công cụ fetch có thể tự dịch nội dung sang tiếng Anh mà bạn không để ý.
 
 ### Metadata phải khớp với chiều bạn định lọc
 
-Giả sử trang chính sách đổi trả gộp cả thời hạn cho người mua (7 ngày) lẫn thời hạn xử lý cho người bán (30 ngày) trong **một** trang. Nếu bạn lưu thành một file `audience: both`, thì `metadata_filter={"audience":"buyer"}` **không lọc được gì** — hai đáp án nằm chung một tài liệu. Metadata schema đẹp trên giấy nhưng vô dụng khi chạy.
+Giả sử trang quy định thư viện gộp cả hạn mức sinh viên (10 ngày) lẫn hạn mức giảng viên (180 ngày) trong **một** trang. Nếu bạn lưu thành một file `audience: all`, thì `metadata_filter={"audience":"student"}` **không lọc được gì** — hai đáp án nằm chung một tài liệu. Metadata schema đẹp trên giấy nhưng vô dụng khi chạy.
 
 Cách xử lý: tách thành hai file, mỗi file một `audience`. Lúc đó filter mới có việc thật, và bạn sẽ có số liệu A/B để viết vào báo cáo.
 
@@ -311,9 +311,9 @@ Hai luồng chạy song song: R2 viết câu hỏi, mọi người dựng `bench
 
 ### 5 benchmark query (R2 chủ trì)
 
-Đúng 5 câu, đa dạng về dạng hỏi (tra số liệu, hỏi điều kiện, hỏi quy trình, liệt kê). Mỗi câu có gold answer **trích được từ tài liệu**, không suy đoán chính sách của nền tảng. Cả nhóm dùng chung 5 câu này.
+Đúng 5 câu, đa dạng về dạng hỏi (tra số liệu, hỏi điều kiện, hỏi quy trình, liệt kê). Mỗi câu có gold answer **trích được từ tài liệu**, không suy đoán quy định của trường. Cả nhóm dùng chung 5 câu này.
 
-Ít nhất một câu phải **cần** `metadata_filter={"audience": "buyer"}` (hoặc `"seller"`). Cách làm câu này hiệu quả: chọn một câu hỏi **không nêu rõ người hỏi là ai**, trong khi corpus có hai tài liệu cùng chủ đề, cùng từ vựng, nhưng khác đối tượng và khác đáp án. Không lọc thì retrieval sẽ lẫn hai tài liệu và agent trả lời sai đối tượng — đúng thứ bạn cần chứng minh.
+Ít nhất một câu phải **cần** `metadata_filter={"audience": "student"}`. Cách làm câu này hiệu quả: chọn một câu hỏi **không nêu rõ người hỏi là ai**, trong khi corpus có hai tài liệu cùng chủ đề, cùng từ vựng, nhưng khác đối tượng và khác đáp án. Không lọc thì retrieval sẽ lẫn hai tài liệu và agent trả lời sai đối tượng — đúng thứ bạn cần chứng minh.
 
 ### Baseline (R3 chủ trì)
 
@@ -357,7 +357,7 @@ Chưa cần quan tâm kết quả tốt hay xấu — CP6 mới xét chất lư�
 
 ### Chọn embedding backend trước khi đo
 
-`MockEmbedder` băm MD5 chuỗi ký tự nên **không mã hoá ngữ nghĩa**. Chạy benchmark bằng nó thì mọi số liệu là nhiễu: một câu hỏi về đổi trả có thể trả về top-1 là tài liệu chính sách bảo hành, còn chunk đúng xếp hạng ba với score âm.
+`MockEmbedder` băm MD5 chuỗi ký tự nên **không mã hoá ngữ nghĩa**. Chạy benchmark bằng nó thì mọi số liệu là nhiễu: một câu hỏi về thư viện có thể trả về top-1 là tài liệu đăng ký học phần, còn chunk đúng xếp hạng ba với score âm.
 
 Nếu máy và mạng cho phép, bật embedder thật (Phụ lục B) — nên cài từ đầu buổi để tải nền trong lúc code. Nếu buộc phải dùng mock, vẫn làm được bài, nhưng phải **ghi rõ trong báo cáo** rằng số liệu bị chi phối bởi mock, và chuyển trọng tâm phân tích sang `count` / `avg_length` / độ mạch lạc của chunk — những chỉ số không phụ thuộc embedding.
 
@@ -403,7 +403,7 @@ Nhóm chưa tới lượt thì tranh thủ hoàn thiện báo cáo.
 
 ### Nộp bài
 
-K4-L3B nộp **link repo GitHub** trên vlearn, không nộp zip.
+K4-L3A nộp **link repo GitHub** trên vlearn, không nộp zip.
 
 ```bash
 pytest tests/ -v          # phải 42 passed
@@ -436,7 +436,7 @@ K4-DAY07-NguyenVanAn-21001234/
 
 - [ ] `pytest tests/ -v` → 42 passed, không còn `raise NotImplementedError`
 - [ ] `data/<chu-de>/` có 5–10 tài liệu đủ metadata, `sources.csv` khớp 1-1
-- [ ] Có ít nhất 1 query dùng `metadata_filter={"audience": "buyer"}` (hoặc `"seller"`)
+- [ ] Có ít nhất 1 query dùng `metadata_filter={"audience": "student"}`
 - [ ] Ít nhất 1 thành viên chunk theo heading/section
 - [ ] Hai báo cáo điền đủ, output pytest là thật
 - [ ] `bench.py` + `ket_qua_benchmark.txt` đã commit
